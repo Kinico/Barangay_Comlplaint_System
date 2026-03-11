@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Success - Barangay System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg,#4e73df,#1cc88a);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .success-icon {
+            font-size: 80px;
+            color: #1cc88a;
+            margin-bottom: 20px;
+        }
+        h2 { color: #333; }
+        .tracking-code {
+            background: #f8f9fc;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            font-size: 32px;
+            font-weight: bold;
+            color: #4e73df;
+            letter-spacing: 3px;
+        }
+        .note {
+            color: #666;
+            font-size: 14px;
+            margin: 20px 0;
+        }
+        .button {
+            display: inline-block;
+            background: #4e73df;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        .button:hover { background: #2e59d9; }
+        .button.secondary {
+            background: #1cc88a;
+        }
+        .button.secondary:hover {
+            background: #169b6b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="success-icon">✅</div>
+        <h2>Complaint Submitted Successfully!</h2>
+        
+        <p>Your tracking code is:</p>
+        <div class="tracking-code">{{ complaint.tracking_code }}</div>
+        
+        <p class="note">
+            📝 Save this tracking code to check your complaint status later.<br>
+            You can also take a screenshot of this page.
+        </p>
+        
+        <div>
+            <a href="{% url 'track_complaint' %}" class="button">Track Complaint</a>
+            <a href="{% url 'submit_complaint' %}" class="button secondary">Submit Another</a>
+        </div>
+    </div>
+</body>
+</html>
